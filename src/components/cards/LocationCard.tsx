@@ -199,6 +199,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
       <a className={cssClasses.ctaButton} href="https://communityfibre.co.uk/">Check Availability</a>
       <a className={cssClasses.ctaButton} href="https://communityfibre.co.uk/">View Packages</a>
       <a className={cssClasses.ctaButton} href="https://communityfibre.co.uk/">More Info</a>
+      <a className={cssClasses.ctaButton} href="https://www.google.com/maps/dir/26.8197252,75.8417746/115+Dawes+Rd,+London+SW6+7DU,+UK/@33.312013,1.420635,3z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x48760f9bc9f190a3:0xa8abc9259f2ac010!2m2!1d-0.204046!2d51.4803135">Get Directions</a>
       {screenSize !== 'sm' && (
         <div className={cssClasses.ctaButton}>
           <div className="sm:text-body align-middle font-heading text-3xl font-bold sm:text-base">JOIN US</div>

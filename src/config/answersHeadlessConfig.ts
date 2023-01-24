@@ -4,7 +4,7 @@ type HeadlessProviderProps = Parameters<typeof AnswersHeadlessProvider>[0];
 
 export const answersHeadlessConfig: HeadlessProviderProps = {
   apiKey: 'f9fd48406d87a5ec0f6d3e2451dc6650',
-  experienceKey: 'restaurant-',
+  experienceKey: 'menu-items',
   locale: 'en',
   sessionTrackingEnabled: true,
   endpoints: {

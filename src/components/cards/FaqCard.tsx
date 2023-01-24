@@ -100,7 +100,7 @@ export function FaqCard(props: TrainerCardProps): JSX.Element {
     <AccordionItem  key={trainer.id}>
         <AccordionItemHeading>
             <AccordionItemButton>
-            <div className='text-red-600' style={{backgroundColor:"blue"}}>{renderName(trainer.name)}</div>
+            <div className='text-purple-600' style={{backgroundColor:"violet"}}>{renderName(trainer.name)}</div>
             </AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>

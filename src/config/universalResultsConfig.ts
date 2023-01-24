@@ -14,7 +14,7 @@ export type UniversalResultsConfig = Record<string, VerticalConfig>;
 export const universalResultsConfig: UniversalResultsConfig = {
 
  
-  locations: {
+  location: {
     label: 'Locations',
     SectionComponent: LocationSection,
     viewMapButton: true,
@@ -53,7 +53,7 @@ export const universalResultsConfig: UniversalResultsConfig = {
     label: 'FAQs',
     viewAllButton: true,
     cardConfig: {
-      CardComponent: MenuCard,
+      CardComponent: FaqCard,
       showOrdinal: false
     }
   },

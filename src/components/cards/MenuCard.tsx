@@ -41,9 +41,10 @@ export interface TrainerData {
   name?: string,
   c_description?: string,
   c_inspirationalQuote?: string,
-  primaryPhoto?: PrimaryPhoto,
-  c_image?:PrimaryPhoto,
-  ctaButtonText?: string
+  Photo?: PrimaryPhoto,
+  primaryPhoto?:any,
+  ctaButtonText?: string,
+  c_orderNow?:any,
 }
 
 //prettier-ignore
@@ -55,9 +56,10 @@ export interface TrainerCardCssClasses {
   // TODO: why can't I use the tailwind pixels here
   trainerPhoto?: string,
   ctaButton?: string,
-  c_image?:PrimaryPhoto,
+  Photo?: PrimaryPhoto,
   ctaButtonText?: string,
-  c_orderNow?:string
+  c_orderNow?:any,
+  primaryPhoto?:any,
 }
 
 //prettier-ignore
@@ -74,6 +76,7 @@ export function MenuCard(props: TrainerCardProps): JSX.Element {
   const { result } = props;
   const trainer = result.rawData as unknown as TrainerData;
   const trainerImg = trainer.primaryPhoto?.image?.url ?? '';
+  //console.log("object",trainerImg)
   // const smallestThumbnail = trainer.logo?.image?.thumbnails[trainer.logo?.image?.thumbnails.length - 1].url
 
   const screenSize = useContext(ResponsiveContext);
@@ -88,15 +91,7 @@ export function MenuCard(props: TrainerCardProps): JSX.Element {
     return <div className={cssClasses.c_description}>{c_description}</div>;
   }
 
-  
-  function renderprimaryPhoto(c_image?: string) {
-    return <div className={cssClasses.c_image}>{c_image}</div>;
-  }
-
-  function renderQuote(quote?: string) {
-    return <div className={cssClasses.descriptionContainer}>{quote}</div>;
-  }
-
+  //console.log("trainer",trainer.primaryPhoto)
   const isVertical = useAnswersState((s) => s.meta.searchType) === 'vertical';
 
   return (
@@ -105,22 +100,26 @@ export function MenuCard(props: TrainerCardProps): JSX.Element {
     <section className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5" >
         <div className=" border-2 border-indigo-600 pt-4 pb-4 pl-4 pr-4 text-center ">
             <div className="rounded overflow-hidden shadow-lg">
-                <img className="w-full" src={"renderPrimaryPhoto(trainer.c_image)"}/>
+                <img src={trainerImg}/>
             </div>
             <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">
                 {renderName(trainer.name)}
             
             </div>
-            <p className="text-gray-700 text-base">
+            <div>
+              <p className="text-gray-700 text-base">
                 {renderDescription(trainer.c_description)}
-            </p>
+              </p>
+            </div>
             </div>
             <div>
-            <button className="bg-orange-400 py-3 px-8 mt-4 rounded text-sm font-semibold hover:bg-opacity-75">
-
-            </button>
+            
+            <button className="bg-purple-500 hover:bg-violet-700 text-white font-bold py-2 px-4 border border-purple-700 rounded">
+                <a href='https://pizzaonline.dominos.co.in/?src=affiliate_DangleAds_354&utm_source=affiliate&utm_medium=DangleAds&utm_campaign=354&gclid=CjwKCAiAoL6eBhA3EiwAXDom5j8YSufPJJN88QDu9tqQaRjX2sQNCX8DmtXMLFSIDRyE9b19bRX0ABoCiEgQAvD_BwE'>{"OrderNow"}</a>
+              </button>
             </div>
+            
         </div>
     </section>
 </>
